@@ -22,49 +22,34 @@ public class Rei extends Robo {
 			auxY = super.posicaoy - aleatorio;
 		}
 
-		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-
-			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 6) {
-				plano.listaCelulas.get(i).robo = null;
-				plano.listaCelulas.get(i).imagem = '°';
-			}
-
-			if (plano.listaCelulas.get(i).posicaoY == auxY && plano.listaCelulas.get(i).posicaoX == auxX) {
-				super.posicaox = plano.listaCelulas.get(i).posicaoX;
-				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
-				plano.listaCelulas.get(i).robo = this;
-				plano.listaCelulas.get(i).imagem = 'K';
-				
-				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
-
-			}
-		}
+		super.movimentar(6,'K',auxX,auxY);
 	}
 
 	@Override
 	public void retroceder() {
-		if (super.posicaox + aleatorio < limiteX && super.posicaoy + aleatorio < limiteY) {
+		if (posicaox + aleatorio < limiteX && posicaoy + aleatorio < limiteY) {
 			auxX = super.posicaox + aleatorio;
 			auxY = super.posicaoy + aleatorio;
 		}
 
-		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-
-			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 6) {
-				plano.listaCelulas.get(i).robo = null;
-				plano.listaCelulas.get(i).imagem = '°';
-			}
-
-			if (plano.listaCelulas.get(i).posicaoY == auxY && plano.listaCelulas.get(i).posicaoX == auxX) {
-				super.posicaox = plano.listaCelulas.get(i).posicaoX;
-				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
-				plano.listaCelulas.get(i).robo = this;
-				plano.listaCelulas.get(i).imagem = 'K';
-				
-				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
-
-			}
-		}
+		super.movimentar(6,'K',auxX,auxY);
+//		for (int i = 0; i < plano.listaCelulas.size(); i++) {
+//
+//			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 6) {
+//				plano.listaCelulas.get(i).robo = null;
+//				plano.listaCelulas.get(i).imagem = '°';
+//			}
+//
+//			if (plano.listaCelulas.get(i).posicaoY == auxY && plano.listaCelulas.get(i).posicaoX == auxX) {
+//				super.posicaox = plano.listaCelulas.get(i).posicaoX;
+//				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
+//				plano.listaCelulas.get(i).robo = this;
+//				plano.listaCelulas.get(i).imagem = 'K';
+//				
+//				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
+//
+//			}
+//		}
 
 	}
 }

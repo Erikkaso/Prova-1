@@ -1,5 +1,7 @@
 package robo;
 
+import java.util.ArrayList;
+
 public abstract class Robo implements Movimento {
 
 	public int id;
@@ -9,7 +11,10 @@ public abstract class Robo implements Movimento {
 	public Plano plano;
 	private char imagem;
 	private int pontos;
-	Celula aux;
+	public int resgatouAluno;
+	public int bugEncontrado;
+	public ArrayList<Integer> posx;
+	public ArrayList<Integer> posy;
 
 	public Robo(int id, String nome, int posicaox, int posicaoy, Plano plano, char imagem, int pontos) {
 		this.id = id;
@@ -19,9 +24,13 @@ public abstract class Robo implements Movimento {
 		this.plano = plano;
 		this.imagem = imagem;
 		this.pontos = pontos;
-		aux = null;
+		posx = new ArrayList<Integer>();
+		posx.add(posicaox);
+		posy = new ArrayList<Integer>();
+		posy.add(posicaoy);
+		
 		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-			aux = plano.listaCelulas.get(i);
+			Celula aux = plano.listaCelulas.get(i);
 			if (aux.posicaoX == posicaox && aux.posicaoY == posicaoy) {
 				plano.listaCelulas.get(i).robo = this;
 				plano.listaCelulas.get(i).imagem = this.imagem;
@@ -45,6 +54,27 @@ public abstract class Robo implements Movimento {
 		this.pontos += pontos;
 	}
 
+	public void movimentar(int id, char imagem, int x, int y) {
+		for (int i = 0; i < plano.listaCelulas.size(); i++) {
+			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == id) {
+				plano.listaCelulas.get(i).robo = null;
+				plano.listaCelulas.get(i).imagem = '°';
+			}
+
+			if (plano.listaCelulas.get(i).posicaoX == x && plano.listaCelulas.get(i).posicaoY == y) {
+				posicaox = plano.listaCelulas.get(i).posicaoX;
+				posicaoy = plano.listaCelulas.get(i).posicaoY;
+				posx.add(posicaox);
+				posy.add(posicaoy);
+				
+				plano.listaCelulas.get(i).robo = this;
+				plano.listaCelulas.get(i).imagem = imagem;
+				
+				verificarAlunoeBug(plano.listaCelulas.get(i), posicaox, posicaoy);
+				
+			}
+		}
+	}
 	
 	public void verificarAlunoeBug(Celula aux, int x, int y) {
 		if (aux.aluno != null && aux.aluno.posicaox == x && aux.aluno.posicaoy == y) {
@@ -53,13 +83,16 @@ public abstract class Robo implements Movimento {
 			aux.aluno = null;
 			plano.numeroAlunos--;
 			System.out.println("UM ALUNO FOI ENCONTRADO!");
+			resgatouAluno++;
 		}
 
 		if (aux.bug != null && aux.bug.posicaox == x && aux.bug.posicaoy == y) {
 			this.setPontos(-15);
 			aux.bug.imagem = '-';
 			aux.bug = null;
+			this.plano.ataquesBugs++;
 			System.out.println("UM ROBO FOI ATACADO!");
+			bugEncontrado++;
 		}
 	}
 

@@ -7,6 +7,7 @@ public class Plano {
 	public ArrayList<Celula> listaCelulas;
 	public int numeroAlunos;
 	public int numeroAlunosTotais;
+	public int ataquesBugs;
 	
 	public Plano(int tamanhoX, int tamanhoY) {
 		listaCelulas = new ArrayList<Celula>();
@@ -23,7 +24,6 @@ public class Plano {
 
 	public void verificarSeTemRobo() {
 		for (int i = 0; i < listaCelulas.size(); i++) {
-			// Celula aux = listaCelulas.get(i);
 			if (listaCelulas.get(i).robo != null) {
 				System.out.println("tem robo" + listaCelulas.get(i).robo.nome + "  - x: " + listaCelulas.get(i).posicaoX
 						+ "  - y: " + listaCelulas.get(i).posicaoY);

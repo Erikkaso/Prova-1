@@ -9,16 +9,17 @@ public class Main {
 
 		Jogador player;
 		int x, y, aux;
+		Plano p;
 		Scanner input = new Scanner(System.in);
 
 		System.out.println("Seja bem vindo! Informe seu nome:");
 		player = new Jogador(input.next());
 
-		System.out.println("insira o valor de x e y:");
+		System.out.println("insira o valor de x e y: (Recomendavel 8x8)");
 		x = input.nextInt();
 		y = input.nextInt();
 
-		Plano p = new Plano(x, y);
+		p = new Plano(x, y);
 
 		ArrayList<Robo> robos = new ArrayList<>();
 		ArrayList<Aluno> listaAluno = new ArrayList<>();
@@ -64,16 +65,32 @@ public class Main {
 
 				aux = 0;
 			}
-			System.out.println("Nesta rodada: " + (p.numeroAlunosTotais - p.numeroAlunos) + " Alunos foram encontrados");
-			
+			System.out.println("Nesta rodada: " + (p.numeroAlunosTotais - p.numeroAlunos) + " Aluno(s) foram encontrados e " + p.ataquesBugs +" Robos foram atacados\n");
+			for (Robo robo : robos) {
+				System.out.println("PONTUACAO DO ROBO - " + robo.nome+": "+robo.getPontos());
+			}
 			System.out.println("Digite 's' para sair do jogo, caso contrario digite qualquer coisa");
 			char aux2 = input.next().charAt(0);
 			if (aux2 == 's')
 				player.jogando = false;
-			else {}
 		}
 		
 		System.out.println("\t\tRELATORIO");
+			String vencedor = robos.get(robos.size()-1).nome;
+			for (int i =0; i < robos.size()-1;i++) {	
+				System.out.print(robos.get(i).nome+" - PONTOS: "+robos.get(i).getPontos() + " Resgatou: " + robos.get(i).resgatouAluno + " Aluno(s) e Encontrou: " + robos.get(i).bugEncontrado + " Bugs" +" - ANDOU POR:");
+				
+				
+				if(robos.get(i).getPontos() > robos.get(robos.size()-1).getPontos())
+					vencedor = robos.get(i).nome;
+				
+				for (int j =0;j < robos.get(i).posx.size();j++) {
+					System.out.print(" ("+robos.get(i).posx.get(j) + "," + robos.get(i).posy.get(j)+") ");
+				}
+				System.out.println();
+			}
+			System.out.println("\nO robo vencedor do Jogador "+player.nome+" eh o robo: "+vencedor);
+			input.close();
+		}
 	}
 
-}

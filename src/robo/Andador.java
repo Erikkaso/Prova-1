@@ -18,21 +18,7 @@ public class Andador extends Robo {
 			aleatorio = gerador.nextInt(plano.listaCelulas.get(plano.listaCelulas.size() - 1).posicaoY) + 1;
 		}
 
-		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 1) {
-				plano.listaCelulas.get(i).robo = null;
-				plano.listaCelulas.get(i).imagem = '°';
-			}
-
-			if (plano.listaCelulas.get(i).posicaoY == aleatorio && plano.listaCelulas.get(i).posicaoX == 1) {
-				super.posicaox = plano.listaCelulas.get(i).posicaoX;
-				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
-				plano.listaCelulas.get(i).robo = this;
-				plano.listaCelulas.get(i).imagem = 'A';
-				
-				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
-			}
-		}
+		super.movimentar(1,'A',1,aleatorio);
 
 	}
 
@@ -44,21 +30,7 @@ public class Andador extends Robo {
 			aleatorio = gerador.nextInt(plano.listaCelulas.get(plano.listaCelulas.size() - 1).posicaoY) + 1;
 		}
 
-		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 1) {
-				plano.listaCelulas.get(i).robo = null;
-				plano.listaCelulas.get(i).imagem = '°';
-			}
-
-			if (plano.listaCelulas.get(i).posicaoY == aleatorio && plano.listaCelulas.get(i).posicaoX == 1) {
-				super.posicaox = plano.listaCelulas.get(i).posicaoX;
-				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
-				plano.listaCelulas.get(i).robo = this;
-				plano.listaCelulas.get(i).imagem = 'A';
-				
-				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
-			}
-		}
+		super.movimentar(1,'A',1,aleatorio);
 	}
 	
 }

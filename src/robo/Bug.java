@@ -22,7 +22,7 @@ public class Bug {
 		while(this.posicaox <=7 && this.posicaoy==8) {this.posicaoy = gerador.nextInt(posicaoy) + 1;}
 		this.plano = plano;
 		this.imagem = '*';
-
+		
 		Celula aux = null;
 		for (int i = 0; i < plano.listaCelulas.size(); i++) {
 			aux = plano.listaCelulas.get(i);

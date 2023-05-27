@@ -22,24 +22,7 @@ public class Rainha extends Robo {
 			auxY = super.posicaoy - aleatorio;
 		}
 
-		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-
-			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 7) {
-				plano.listaCelulas.get(i).robo = null;
-				plano.listaCelulas.get(i).imagem = '°';
-			}
-
-			if (plano.listaCelulas.get(i).posicaoY == auxY && plano.listaCelulas.get(i).posicaoX == auxX) {
-				super.posicaox = plano.listaCelulas.get(i).posicaoX;
-				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
-				plano.listaCelulas.get(i).robo = this;
-				plano.listaCelulas.get(i).imagem = 'Q';//antes isso tava em baixo, caso ocorra algum erro poem aqui v
-				
-				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
-				
-				//aqui
-			}
-		}
+		super.movimentar(7,'Q',auxX,auxY);
 	}
 
 	@Override
@@ -50,22 +33,7 @@ public class Rainha extends Robo {
 			auxY = super.posicaoy + aleatorio;
 		}
 
-		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-
-			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 7) {
-				plano.listaCelulas.get(i).robo = null;
-				plano.listaCelulas.get(i).imagem = '°';
-			}
-
-			if (plano.listaCelulas.get(i).posicaoY == auxY && plano.listaCelulas.get(i).posicaoX == auxX) {
-				super.posicaox = plano.listaCelulas.get(i).posicaoX;
-				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
-				plano.listaCelulas.get(i).robo = this;
-				plano.listaCelulas.get(i).imagem = 'Q';
-				
-				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
-			}
-		}
+		super.movimentar(7,'Q',auxX,auxY);
 
 	}
 }

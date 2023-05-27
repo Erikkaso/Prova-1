@@ -10,24 +10,10 @@ public class Peao extends Robo {
 
 	public void avancar() {
 
-		if (posicaox <= limite && posicaox > 1)
+		if (super.posicaox <= limite && posicaox > 1)
 			posicaox++;
 
-		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 2) {
-				plano.listaCelulas.get(i).robo = null;
-				plano.listaCelulas.get(i).imagem = '°';
-			}
-
-			if (plano.listaCelulas.get(i).posicaoX == posicaox && plano.listaCelulas.get(i).posicaoY == plano.listaCelulas.get(plano.listaCelulas.size() - 1).posicaoY) {
-				super.posicaox = plano.listaCelulas.get(i).posicaoX;
-				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
-				plano.listaCelulas.get(i).robo = this;
-				plano.listaCelulas.get(i).imagem = 'P';
-				
-				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
-			}
-		}
+		super.movimentar(2,'P',posicaox,posicaoy);
 
 	}
 
@@ -35,22 +21,7 @@ public class Peao extends Robo {
 	public void retroceder() {
 		if (posicaox <= limite && posicaox > 1)
 			posicaox--;
-		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 2) {
-				plano.listaCelulas.get(i).robo = null;
-				plano.listaCelulas.get(i).imagem = '°';
-			}
-
-			if (plano.listaCelulas.get(i).posicaoX == posicaox && plano.listaCelulas
-					.get(i).posicaoY == plano.listaCelulas.get(plano.listaCelulas.size() - 1).posicaoY) {
-				super.posicaox = plano.listaCelulas.get(i).posicaoX;
-				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
-				plano.listaCelulas.get(i).robo = this;
-				plano.listaCelulas.get(i).imagem = 'P';
-				
-				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
-			}
-		}
+		super.movimentar(2,'P',posicaox,posicaoy);
 
 	}
 }

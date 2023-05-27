@@ -22,22 +22,7 @@ public class Bispo extends Robo {
 			auxY = super.posicaoy - aleatorio;
 		}
 
-		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-
-			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 4) {
-				plano.listaCelulas.get(i).robo = null;
-				plano.listaCelulas.get(i).imagem = '°';
-			}
-
-			if (plano.listaCelulas.get(i).posicaoY == auxY && plano.listaCelulas.get(i).posicaoX == auxX) {
-				super.posicaox = plano.listaCelulas.get(i).posicaoX;
-				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
-				plano.listaCelulas.get(i).robo = this;
-				plano.listaCelulas.get(i).imagem = 'B';
-				
-				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
-			}
-		}
+		super.movimentar(4,'B',auxX,auxY);
 	}
 
 	@Override
@@ -48,23 +33,7 @@ public class Bispo extends Robo {
 			auxY = super.posicaoy + aleatorio;
 		}
 
-		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-
-			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 4) {
-				plano.listaCelulas.get(i).robo = null;
-				plano.listaCelulas.get(i).imagem = '°';
-			}
-
-			if (plano.listaCelulas.get(i).posicaoY == auxY && plano.listaCelulas.get(i).posicaoX == auxX) {
-				super.posicaox = plano.listaCelulas.get(i).posicaoX;
-				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
-				plano.listaCelulas.get(i).robo = this;
-				plano.listaCelulas.get(i).imagem = 'B';
-				
-				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
-
-			}
-		}
+		super.movimentar(4,'B',auxX,auxY);
 
 	}
 }
