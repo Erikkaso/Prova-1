@@ -12,29 +12,29 @@ public class Torre extends Robo {
 
 	public void avancar() {
 
-		if (super.posicaoy <= limite && super.posicaoy > 1)
-			super.posicaoy -= gerador.nextInt(2)+1;
+		if (super.getPosicaoy() <= limite && super.getPosicaoy() > 1)
+			super.setPosicaoy(super.getPosicaoy() - (gerador.nextInt(2)+1));
 
-		if (super.posicaoy > limite && super.posicaoy > 1)
-			super.posicaoy = limite;
-		else if (super.posicaoy < limite && super.posicaoy < 1)
-			super.posicaoy = 1;
+		if (super.getPosicaoy() > limite && super.getPosicaoy() > 1)
+			super.setPosicaoy(limite);
+		else if (super.getPosicaoy() < limite && super.getPosicaoy() < 1)
+			super.setPosicaoy(1);
 
-		super.movimentar(3,'T',super.posicaox,super.posicaoy);
+		super.movimentar(3,'T',super.getPosicaox(),super.getPosicaoy());
 	}
 
 	@Override
 	public void retroceder() {
 
-		if (super.posicaoy <= limite && super.posicaoy > 1)
-			posicaoy += gerador.nextInt(2)+1;
+		if (super.getPosicaoy() <= limite && super.getPosicaoy() > 1)
+			super.setPosicaoy(super.getPosicaoy() + (gerador.nextInt(2)+1));
 
-		if (super.posicaoy > limite && super.posicaoy > 1)
-			super.posicaoy = limite;
-		else if (super.posicaoy < limite && super.posicaoy < 1)
-			posicaoy = 1;
+		if (super.getPosicaoy() > limite && super.getPosicaoy() > 1)
+			super.setPosicaoy(limite);
+		else if (super.getPosicaoy() < limite && super.getPosicaoy() < 1)
+			super.setPosicaoy(1);
 
-		super.movimentar(3,'T',posicaox,posicaoy);
+		super.movimentar(3,'T',getPosicaox(),getPosicaoy());
 	}
 
 }

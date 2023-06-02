@@ -8,8 +8,8 @@ public class Rei extends Robo {
 	int aleatorio = gerador.nextInt(4) + 1;
 	int limiteX = plano.listaCelulas.get(plano.listaCelulas.size() - 1).posicaoX;
 	int limiteY = plano.listaCelulas.get(plano.listaCelulas.size() - 1).posicaoY;
-	int auxX = posicaox;
-	int auxY = posicaoy;
+	int auxX = getPosicaox();
+	int auxY = getPosicaoy();
 
 	public Rei(int id, String nome, int posicaox, int posicaoy, Plano plano) {
 		super(id, nome, posicaox, posicaoy, plano, 'K', 0);
@@ -17,9 +17,9 @@ public class Rei extends Robo {
 
 	public void avancar() {
 
-		if (super.posicaox - aleatorio > 1 && super.posicaoy - aleatorio > 1) {
-			auxX = super.posicaox - aleatorio;
-			auxY = super.posicaoy - aleatorio;
+		if (super.getPosicaox() - aleatorio > 1 && super.getPosicaoy() - aleatorio > 1) {
+			auxX = super.getPosicaox() - aleatorio;
+			auxY = super.getPosicaoy() - aleatorio;
 		}
 
 		super.movimentar(6,'K',auxX,auxY);
@@ -27,29 +27,12 @@ public class Rei extends Robo {
 
 	@Override
 	public void retroceder() {
-		if (posicaox + aleatorio < limiteX && posicaoy + aleatorio < limiteY) {
-			auxX = super.posicaox + aleatorio;
-			auxY = super.posicaoy + aleatorio;
+		if (getPosicaox() + aleatorio < limiteX && getPosicaoy() + aleatorio < limiteY) {
+			auxX = super.getPosicaox() + aleatorio;
+			auxY = super.getPosicaoy() + aleatorio;
 		}
 
 		super.movimentar(6,'K',auxX,auxY);
-//		for (int i = 0; i < plano.listaCelulas.size(); i++) {
-//
-//			if (plano.listaCelulas.get(i).robo != null && plano.listaCelulas.get(i).robo.id == 6) {
-//				plano.listaCelulas.get(i).robo = null;
-//				plano.listaCelulas.get(i).imagem = '°';
-//			}
-//
-//			if (plano.listaCelulas.get(i).posicaoY == auxY && plano.listaCelulas.get(i).posicaoX == auxX) {
-//				super.posicaox = plano.listaCelulas.get(i).posicaoX;
-//				super.posicaoy = plano.listaCelulas.get(i).posicaoY;
-//				plano.listaCelulas.get(i).robo = this;
-//				plano.listaCelulas.get(i).imagem = 'K';
-//				
-//				super.verificarAlunoeBug(plano.listaCelulas.get(i), super.posicaox, super.posicaoy);
-//
-//			}
-//		}
 
 	}
 }

@@ -5,7 +5,7 @@ import java.util.Random;
 public class Aluno {
 
 	public int id;
-	public String tipo;;
+	public String tipo;
 	public int posicaox;
 	public int posicaoy;
 	public Plano plano;
@@ -21,7 +21,7 @@ public class Aluno {
 		this.posicaoy = gerador.nextInt(posicaoy) + 1;
 		while(this.posicaox <=7 && this.posicaoy==8) {this.posicaoy = gerador.nextInt(posicaoy) + 1;}
 		this.plano = plano;
-		this.imagem = 'S';
+		this.imagem = '-';
 		plano.numeroAlunos++;
 		plano.numeroAlunosTotais++;
 

@@ -22,31 +22,6 @@ public class Plano {
 		}
 	}
 
-	public void verificarSeTemRobo() {
-		for (int i = 0; i < listaCelulas.size(); i++) {
-			if (listaCelulas.get(i).robo != null) {
-				System.out.println("tem robo" + listaCelulas.get(i).robo.nome + "  - x: " + listaCelulas.get(i).posicaoX
-						+ "  - y: " + listaCelulas.get(i).posicaoY);
-			}
-		}
-	}
-
-	public Celula retornarCelula(int x, int y) {
-
-		for (int i = 0; i < listaCelulas.size(); i++) {
-			if (listaCelulas.get(i).posicaoX == x && listaCelulas.get(i).posicaoY == y) {
-				return listaCelulas.get(i);
-			}
-		}
-		return null;
-	}
-
-	public void retornarCelulas() {
-		for (int i = 0; i < listaCelulas.size(); i++) {
-			System.out.println(listaCelulas.get(i).imprimir());
-		}
-	}
-
 	public void criarGrade() {
 		int tamanho = listaCelulas.size()-1;
 		int xMax = listaCelulas.get(tamanho).posicaoX;

@@ -10,18 +10,18 @@ public class Peao extends Robo {
 
 	public void avancar() {
 
-		if (super.posicaox <= limite && posicaox > 1)
-			posicaox++;
+		if (super.getPosicaox() <= limite && getPosicaox() > 1)
+			super.setPosicaox(getPosicaox()+1);
 
-		super.movimentar(2,'P',posicaox,posicaoy);
+		super.movimentar(2,'P',getPosicaox(),getPosicaoy());
 
 	}
 
 	@Override
 	public void retroceder() {
-		if (posicaox <= limite && posicaox > 1)
-			posicaox--;
-		super.movimentar(2,'P',posicaox,posicaoy);
+		if (getPosicaox() <= limite && getPosicaox() > 1)
+			super.setPosicaox(getPosicaox()-1);
+		super.movimentar(2,'P',getPosicaox(),getPosicaoy());
 
 	}
 }

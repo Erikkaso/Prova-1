@@ -5,7 +5,7 @@ import java.util.Random;
 public class Bug {
 
 	public int id;
-	public String tipo;;
+	public String tipo;
 	public int posicaox;
 	public int posicaoy;
 	public Plano plano;
@@ -21,7 +21,7 @@ public class Bug {
 		this.posicaoy = gerador.nextInt(posicaoy) + 1;
 		while(this.posicaox <=7 && this.posicaoy==8) {this.posicaoy = gerador.nextInt(posicaoy) + 1;}
 		this.plano = plano;
-		this.imagem = '*';
+		this.imagem = '-';
 		
 		Celula aux = null;
 		for (int i = 0; i < plano.listaCelulas.size(); i++) {

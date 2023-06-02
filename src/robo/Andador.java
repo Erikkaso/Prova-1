@@ -14,7 +14,7 @@ public class Andador extends Robo {
 
 		aleatorio = gerador.nextInt(plano.listaCelulas.get(plano.listaCelulas.size() - 1).posicaoY) + 1;
 
-		while (aleatorio >= super.posicaoy) {
+		while (aleatorio >= super.getPosicaoy()) {
 			aleatorio = gerador.nextInt(plano.listaCelulas.get(plano.listaCelulas.size() - 1).posicaoY) + 1;
 		}
 
@@ -26,7 +26,7 @@ public class Andador extends Robo {
 	public void retroceder() {
 		aleatorio = gerador.nextInt(plano.listaCelulas.get(plano.listaCelulas.size() - 1).posicaoY) + 1;
 
-		while (aleatorio < super.posicaoy) {
+		while (aleatorio < super.getPosicaoy()) {
 			aleatorio = gerador.nextInt(plano.listaCelulas.get(plano.listaCelulas.size() - 1).posicaoY) + 1;
 		}
 
